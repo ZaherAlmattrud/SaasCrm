@@ -1,3 +1,5 @@
+ 
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -18,10 +20,40 @@
         @livewireStyles
     </head>
     <body>
+        <header class="py-6">
+            <div class="container mx-auto flex justify-between bg-slate-800 text-white rounded p-2">
+                <div class="logo p-4">
+                    <a href="/">{{ config('app.name', 'Laravel') }}</a>
+                </div>
+                <div class="nav flex">
+                   
+                    <a href="/login" class="p-4 block">Login</a>
+                    <a href="/register" class="p-4 block bg-blue-600 rounded hover:bg-blue-800">Register</a>
+                </div>
+            </div>
+        </header>
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
+        <footer>
+            <div class="container my-2 mx-auto">
+                <div class="flex justify-between">
+                    <div>
+                        &copy; copyright 
+                    </div>
+                    <div class="flex gap-3">
+                        <a class="hover:underline" href="/terms-of-service">Terms of Service</a>
+                        <a class="hover:underline" href="/privacy-policy">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+       
+
+     
 
         @livewireScripts
     </body>
 </html>
+
