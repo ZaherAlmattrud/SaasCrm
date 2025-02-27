@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lead;
 use Illuminate\Http\Request;
 
 class LeadController extends Controller
@@ -12,7 +13,18 @@ class LeadController extends Controller
     public function index()
     {
         //
-        return view('leads.index');
+
+        $leads = Lead::paginate(1);
+        return view('leads.index', compact('leads'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+        return view('leads.create');
     }
 
     /**
@@ -21,12 +33,31 @@ class LeadController extends Controller
     public function store(Request $request)
     {
         //
+
+        $validatedData = $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email|unique:leads,email',
+            'phone' => 'nullable|string',
+            'message' => 'nullable|string',
+            'status' => 'required|in:new,contacted,converted',
+        ]);
+
+        $lead = Lead::create($validatedData);
+        return redirect()->route('leads.index');
     }
 
     /**
      * Display the specified resource.
      */
     public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
     {
         //
     }
