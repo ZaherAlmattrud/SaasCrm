@@ -17,6 +17,9 @@
 
                             {{ $lead->name }},
                             {{ $lead->email }} 
+                          
+                            <a class="text-blue-500 hover:underline" href="{{ route('leads.edit', ['lead'=>$lead->id]) }}">edit</a>
+
                         
                         
                         </div>
