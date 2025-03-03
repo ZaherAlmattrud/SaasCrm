@@ -31,6 +31,6 @@ Route::middleware([
         Route::get('/leads/{lead}', 'show')->name('leads.show');
         Route::get('/leads/{lead}/edit', 'edit')->name('leads.edit');
         Route::put('/leads/{lead}', 'update')->name('leads.update');
-        Route::delete('/leads', 'destroy')->name('leads.delete');
+        Route::delete('/leads/{lead}', 'destroy')->name('leads.delete');
     });
 });

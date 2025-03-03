@@ -19,6 +19,11 @@
                             {{ $lead->email }} 
                           
                             <a class="text-blue-500 hover:underline" href="{{ route('leads.edit', ['lead'=>$lead->id]) }}">edit</a>
+                            <a class="text-blue-500 hover:underline" onclick="deleteLead('lead{{$lead->id}}')">delete</a>
+                        <form id="lead{{$lead->id}}" action="{{ route('leads.delete', ['lead'=>$lead->id]) }}" method='post'>
+                            @csrf
+                            @method('DELETE')
+                        </form>
 
                         
                         
@@ -33,4 +38,12 @@
             </div>
         </div>
     </div>
+    <script>
+        function deleteLead(leadId)
+        {
+            if (confirm("Are you sure to delete lead?") == true) {
+                document.getElementById(leadId).submit();
+            }
+        }
+    </script>
 </x-app-layout>
