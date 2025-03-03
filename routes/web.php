@@ -1,10 +1,14 @@
 <?php
 
 use App\Http\Controllers\LeadController;
+use App\Models\Plan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $plans = Plan::all();
+    
+    return view('welcome',compact('plans'));
 });
 
 Route::view('/contact-us', 'contact')->name('contact');
