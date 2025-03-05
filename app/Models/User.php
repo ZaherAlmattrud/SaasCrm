@@ -64,4 +64,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+     // Define the relationship to businesses
+     public function businesses()
+     {
+         return $this->belongsToMany(Business::class);
+     }
 }
