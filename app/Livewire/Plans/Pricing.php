@@ -18,7 +18,10 @@ class Pricing extends Component
 
     public function selectPlan(Plan $plan)
     {
+
+         
         $this->selectedPlan = $plan;
+        $this->dispatch('plan-selected', plan: $plan);
        
     }
 

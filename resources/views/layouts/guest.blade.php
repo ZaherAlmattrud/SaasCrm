@@ -23,7 +23,7 @@
         <header class="py-6">
             <div class="container mx-auto flex justify-between bg-slate-800 text-white rounded p-2">
                 <div class="logo p-4">
-                    <a href="/">{{ config('app.name', 'Laravel') }}</a>
+                    <a href="/">{{ config('app.name', 'CRM') }}</a>
                 </div>
                 <div class="nav flex">
                    
@@ -53,6 +53,7 @@
        
 
      
+        @livewire('business.register')
 
         @livewireScripts
     </body>
