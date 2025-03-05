@@ -9,4 +9,8 @@ class Plan extends Model
     //
     protected $guarded = ['id'];
 
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class);
+    }
 }

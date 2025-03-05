@@ -27,4 +27,9 @@ class Business extends Model
       {
           return $this->belongsToMany(User::class);
       }
+    
+    public function plan()
+    {
+        return $this->belongsTo(Plan::class);
+    }
 }
