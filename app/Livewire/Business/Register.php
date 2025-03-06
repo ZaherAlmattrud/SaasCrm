@@ -57,6 +57,8 @@ class Register extends Component
             "business.name" => "required",
             "business.industry" => "required",
         ]);
+
+        return  $validatedBusiness  ;
     }
 
     public function validateUser(){
@@ -66,6 +68,8 @@ class Register extends Component
             "user.email" => "required|string|email|max:255|unique:users,email",
             "user.password" => "required|min:8|max:60|confirmed"
         ]);
+
+        return   $validatedUser ;
 
         
     }
