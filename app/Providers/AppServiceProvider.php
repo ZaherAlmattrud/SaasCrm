@@ -27,8 +27,23 @@ class AppServiceProvider extends ServiceProvider
 
         Gate::before(function ($user, $permission) {
 
+
+          
+
+            if($user->businesses[0]->plan->permissions->flatten()->pluck('name')->unique()->contains($permission)){
+
+                return $user->permissions()->contains($permission);
+
+            }else{
+
+
+
+               abort('403' , 'The Permission Not Avaliable Now');
+               return false ;
+            }
+
        
-            return $user->permissions()->contains($permission);
+            
           
         });
     }
