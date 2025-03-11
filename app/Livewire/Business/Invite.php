@@ -30,6 +30,7 @@ class Invite extends Component
         Mail::to($this->email)->send(new InviteUser());
         $this->inviteModal = false;
         $this->alert('success', 'Invite mail send successfully!');
+       
       
 
     }
