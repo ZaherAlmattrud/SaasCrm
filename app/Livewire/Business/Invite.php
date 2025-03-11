@@ -5,12 +5,13 @@ namespace App\Livewire\Business;
 use Livewire\Component;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\InviteUser;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 use App\Models\Invitation;
 use Auth;
 
 class Invite extends Component
 {
-   
+    use LivewireAlert;
     public $inviteModal = false;
     public $email;
 
@@ -28,6 +29,7 @@ class Invite extends Component
      
         Mail::to($this->email)->send(new InviteUser());
         $this->inviteModal = false;
+        $this->alert('success', 'Invite mail send successfully!');
       
 
     }
