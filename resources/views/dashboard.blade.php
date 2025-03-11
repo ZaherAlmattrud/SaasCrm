@@ -10,16 +10,10 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
              Test
 
-             @can('permission_1')
-             permission_1
-             @endcan
              
-             @can('permission_2')
-             permission_2
-             @endcan
-             @can('permission_200')
-             permission_200
-             @endcan
+        
+
+             @livewire('business.invite')
             </div>
         </div>
     </div>
