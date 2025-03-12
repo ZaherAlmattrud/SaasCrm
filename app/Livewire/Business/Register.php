@@ -8,9 +8,14 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\Attributes\On;
+use Spatie\Honeypot\Http\Livewire\Concerns\HoneypotData;
+use Spatie\Honeypot\Http\Livewire\Concerns\UsesSpamProtection;
+use Illuminate\Http\Request;
 
 class Register extends Component
 {
+
+    use UsesSpamProtection;
 
     public $plans;
     public $showForm = false;
@@ -18,11 +23,13 @@ class Register extends Component
     public $currentStep = 1;
     public $business = [];
     public $user = [];
+    public HoneypotData $extraFields;
 
 
-    public function mount()
+    public function mount(Request $request)
     {
 
+        $this->extraFields = new HoneypotData();
         $this->plans = Plan::all();
     }
 
@@ -84,6 +91,8 @@ class Register extends Component
             $this->validateBusiness();
 
         } elseif ($step == 'submit') {
+
+            $this->protectAgainstSpam(); // if is spam, will abort the request
 
             $validatedUser = $this->validateUser();
 

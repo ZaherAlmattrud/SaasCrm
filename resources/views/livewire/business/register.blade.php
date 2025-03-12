@@ -96,7 +96,7 @@
             <!-- Step 3: User Details -->
             <div x-show="step === 3" style="display: none;">
                 <h2 class="text-2xl font-semibold mb-4">Step 3: User Details</h2>
-              
+                <x-honeypot livewire-model="extraFields" />
                 <!-- Add your step 3 content here -->
                 <div>
                     <div class="mb-3">
