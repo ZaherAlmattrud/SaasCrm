@@ -11,6 +11,7 @@ use Livewire\Attributes\On;
 use Spatie\Honeypot\Http\Livewire\Concerns\HoneypotData;
 use Spatie\Honeypot\Http\Livewire\Concerns\UsesSpamProtection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Register extends Component
 {
@@ -31,6 +32,10 @@ class Register extends Component
 
         $this->extraFields = new HoneypotData();
         $this->plans = Plan::all();
+
+        if($request->register=='true'){
+            $this->showForm=true;
+        }
     }
 
     public function addBusiness()
@@ -56,6 +61,14 @@ class Register extends Component
         $this->showForm = true;
         $this->selectedPlan = $plan;
         $this->currentStep = 2;
+    }
+
+    public function updatedSelectedPlan()
+    {
+
+        $plan = Plan::find($this->selectedPlan['id']);
+        
+        $this->selectedPlan = $plan->toArray();
     }
 
     public function validateBusiness()
@@ -89,6 +102,16 @@ class Register extends Component
         if ($step == 3) {
 
             $this->validateBusiness();
+            
+            if(Auth::check()){
+
+                // User is authenticated
+                $business = $this->addBusiness();
+                Auth::user()->businesses()->attach( $business->id);
+                $this->redirectRoute('dashboard');
+
+
+            }
 
         } elseif ($step == 'submit') {
 

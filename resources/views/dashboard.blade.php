@@ -8,12 +8,16 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-             Test
 
-             
-        
 
-             @livewire('business.invite')
+
+                Dashboard 
+
+                @livewire('business.invite')
+
+                @if(auth()->check())
+                   @livewire('business.select',['showButton'=>true])
+                @endif
             </div>
         </div>
     </div>

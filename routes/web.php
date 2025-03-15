@@ -3,6 +3,7 @@
 use App\Http\Controllers\LeadController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\SelectBusiness;
 
 
 Route::get('/logout' , function(){
@@ -28,6 +29,7 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
+    SelectBusiness::class
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');

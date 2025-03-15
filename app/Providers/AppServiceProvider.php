@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Log;
+use App\Models\Business;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,9 +29,9 @@ class AppServiceProvider extends ServiceProvider
         Gate::before(function ($user, $permission) {
 
 
-          
+            $business = Business::find(session('businessId'));
 
-            if($user->businesses[0]->plan->permissions->flatten()->pluck('name')->unique()->contains($permission)){
+            if($business->plan->permissions->flatten()->pluck('name')->unique()->contains($permission)){
 
                 return $user->permissions()->contains($permission);
 
