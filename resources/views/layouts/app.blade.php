@@ -22,9 +22,20 @@
 <body class="font-sans antialiased">
     <x-banner />
 
-    <div class="h-screen flex" x-data="{sidebar:true,mobile:false}">
 
-        <div x-show="sidebar" class="hidden md:block md:w-1/5 lg:w-1/6">Sidebar</div>
+    <div class="h-screen flex" x-data="{sidebar:true,mobile:false}">
+            <div x-show="mobile" class="fixed md:hidden md:w-1/5 lg:w-1/6 h-screen w-full bg-white">
+                <a class="float-right p-4 cursor-pointer" x-on:click="mobile = !mobile">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                </a>
+                @livewire('sidebar')
+            </div>
+            <div x-show="sidebar" class="hidden md:block md:w-1/5 lg:w-1/6">
+                @livewire('sidebar')
+            </div>
+ 
         <div class="flex-grow min-h-screen bg-gray-100">
             <div class="flex">
                 <div class="p-5">
