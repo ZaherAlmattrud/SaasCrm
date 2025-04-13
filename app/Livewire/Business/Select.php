@@ -2,7 +2,8 @@
 
 namespace App\Livewire\Business;
 
-use Illuminate\Container\Attributes\Auth;
+ 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Livewire\Component;
 
