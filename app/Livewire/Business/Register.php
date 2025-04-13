@@ -117,6 +117,8 @@ class Register extends Component
 
             $this->protectAgainstSpam(); // if is spam, will abort the request
 
+            $this->validateBusiness();
+            
             $validatedUser = $this->validateUser();
 
             $business =  $this->addBusiness();
