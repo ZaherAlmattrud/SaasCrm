@@ -1,7 +1,9 @@
 <div>
-    <div class="w-full bg-gray-200 p-5"> CRM </div>
+    <div class="w-full bg-gray-200 p-5">      @livewire('business.select',['showButton'=>true]) </div>
     <div class="flex flex-col p-2 gap-2">
 
+    <a href="{{ route('dashboard') }}" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">Dashboard</a>
+    
         <div class="w-full" x-data="{open:false}">
             <a x-on:click="open=!open" class="flex justify-between p-4 bg-slate-100 hover:bg-slate-200 rounded w-full ">
 
@@ -19,9 +21,7 @@
                 <a href="" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">link</a>
             </div>
         </div>
-        <a href="" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">link</a>
-        <a href="" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">link</a>
-        <a href="" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">link</a>
+       
         <div class="w-full" x-data="{open:false}">
             <a x-on:click="open=!open" class="flex justify-between p-4 bg-slate-100 hover:bg-slate-200 rounded w-full ">
 
@@ -34,9 +34,9 @@
                 </svg>
             </a>
             <div x-show="open" class="flex flex-col">
-                <a href="" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">link</a>
-                <a href="" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">link</a>
-                <a href="" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">link</a>
+                <a href="{{route('business.roles')}}" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">Roles</a>
+                <a href="{{route('business.invites')}}" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">Invite Users</a>
+               
             </div>
         </div>
 

@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Business;
 
- 
+use App\Models\Business;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Livewire\Component;
@@ -18,6 +18,7 @@ class Select extends Component
         if($request->selectBusiness=='true'){
             $this->showSelection=true;
         }
+
     }
 
     public function change(){
@@ -39,6 +40,8 @@ class Select extends Component
         if($exists){
 
             $request->session()->put('businessId', $this->businessId);
+            $business = Business::find($this->businessId);
+            $request->session()->put('businessName', $business->name);
             $this->redirect('/dashboard'); 
             
         }else{

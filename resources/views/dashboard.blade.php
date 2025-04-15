@@ -13,11 +13,10 @@
 
                 Dashboard 
 
-                @livewire('business.invite')
+              
 
-                @if(auth()->check())
-                   @livewire('business.select',['showButton'=>true])
-                @endif
+              
+             
             </div>
         </div>
     </div>

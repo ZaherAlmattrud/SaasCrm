@@ -4,6 +4,7 @@ use App\Http\Controllers\LeadController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\SelectBusiness;
+use App\Livewire\Business\Invite;
 use App\Livewire\Business\Roles;
 
 Route::get('/logout' , function(){
@@ -38,6 +39,7 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('/roles', Roles::class)->name('business.roles');
+    Route::get('/invites', Invite::class)->name('business.invites');
 
     // Route::get('/leads' , [LeadController::class , 'index'])->name('leads.index');
     // Route::get('/leads/create' , [LeadController::class , 'create'])->name('leads.create');

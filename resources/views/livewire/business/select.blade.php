@@ -1,7 +1,8 @@
 <div class="p-6">
 
     @if( $showButton && auth()->user()->businesses->count()>1 )
-    <x-button wire:click="change">Change Business</x-button>{{session('businessId')}}
+    <a wire:click="change" class="cursor-pointer"> {{session('businessName')}} </a>
+    
     @endif
 
 
