@@ -5,23 +5,19 @@ namespace App\Livewire\Business;
 use Livewire\Component;
 
 use App\Models\Role;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\WithPagination;
 
 class Roles extends Component
 {
 
-    public $business_roles;
+    use WithPagination;
+    use LivewireAlert;
+
+   
     public $name;
-
-    /**
-     * Initializes the component by retrieving all roles.
-     *
-     * @return void
-     */
-    public function mount()
-    {
-
-        $this->business_roles = Role::all();
-    }
+    public $editing = false;
+ 
 
     /**
      * Renders the roles component.
@@ -30,7 +26,10 @@ class Roles extends Component
      */
     public function render()
     {
-        return view('livewire.business.roles');
+        return view('livewire.business.roles',
+         [
+            'business_roles' => Role::paginate(10),
+        ]);
     }
 
 
@@ -40,14 +39,32 @@ class Roles extends Component
      * @return void
      */
 
-    public function create()
+    public function save()
     {
 
-        Role::create([
-            'name' => $this->name,
-            'business_id'=>session('businessId'),
+
+        $this->validate([
+            'name'=>'required'
         ]);
 
+        if( $this->editing ){
+            
+            $this->editing->update([    'name' => $this->name  ]);
+            $this->alert('success', 'Updated successfully!');
+
+        }else{
+
+            Role::create([
+                'name' => $this->name,
+                'business_id'=>session('businessId'),
+            ]);
+
+            $this->alert('success', 'Created successfully!');
+    
+
+        }
+
+     
         $this->resetInputFields();
     }
     /**
@@ -65,6 +82,7 @@ class Roles extends Component
 
         $role = Role::findOrFail($id);
         $this->name = $role->name;
+        $this->editing = $role ;
     }
 
     /**
@@ -96,6 +114,7 @@ class Roles extends Component
     public function delete($id) {  
 
         Role::findOrFail($id)->delete();
+        $this->alert('success', 'Deleted successfully!');
          
     }
 
@@ -109,6 +128,7 @@ class Roles extends Component
     {
 
         $this->name = '';
-        $this->business_roles = Role::all();
+        $this->editing = false ;
+       
     }
 }

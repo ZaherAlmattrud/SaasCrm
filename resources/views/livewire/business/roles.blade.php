@@ -1,10 +1,21 @@
 <div class="p-6">
     <div class="flex">
-        <x-input type="text" wire:model="name" placeholder="Role Name"></x-input>
-        <x-button wire:click="create" >Create</x-button>
+        <div>
+            <x-input type="text" wire:model="name" placeholder="Role Name"></x-input>
+            @error('name')
+            <span class="text-red-500">{{$message}}</span>
+            @enderror
+
+        </div>
+
+        <x-button wire:click="save">
+
+            {{ $editing  ? 'Save' : 'Create' }}
+
+        </x-button>
     </div>
 
-   
+
     <table class="bg-white rounded mt-10 w-full">
         <tr class="bg-state-50 border">
 
@@ -25,8 +36,13 @@
         </tr>
         @endforeach
 
-    </table>
 
- 
+    </table>
+    <div class="mt-5">
+        {{ $business_roles->links() }}
+    </div>
+
+
+
 
 </div>
