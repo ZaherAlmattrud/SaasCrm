@@ -1,5 +1,5 @@
 <div>
-    <div class="w-full bg-gray-200 p-2"> CRM </div>
+    <div class="w-full bg-gray-200 p-5"> CRM </div>
     <div class="flex flex-col p-2 gap-2">
 
         <div class="w-full" x-data="{open:false}">
