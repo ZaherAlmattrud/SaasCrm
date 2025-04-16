@@ -4,7 +4,7 @@
 
     <a href="{{ route('dashboard') }}" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">Dashboard</a>
     
-        <div class="w-full" x-data="{open:false}">
+        <div class="w-full" x-data="{open:$persist(false).as('open-users')}">
             <a x-on:click="open=!open" class="flex justify-between p-4 bg-slate-100 hover:bg-slate-200 rounded w-full ">
 
                 <span> Users </span>
@@ -22,7 +22,7 @@
             </div>
         </div>
        
-        <div class="w-full" x-data="{open:false}">
+        <div class="w-full" x-data="{open:$persist(false).as('open-settings')}">
             <a x-on:click="open=!open" class="flex justify-between p-4 bg-slate-100 hover:bg-slate-200 rounded w-full ">
 
                 <span> Settings </span>
@@ -34,8 +34,8 @@
                 </svg>
             </a>
             <div x-show="open" class="flex flex-col">
-                <a href="{{route('business.roles')}}" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">Roles</a>
-                <a href="{{route('business.invites')}}" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">Invite Users</a>
+                <a href="{{route('business.roles')}}" class="p-4  hover:bg-slate-200 rounded @if(request()->routeIs('business.roles')) bg-slate-300 @else bg-slate-100 @endif">Roles</a>
+                <a href="{{route('business.invites')}}" class="p-4  hover:bg-slate-200 rounded  @if(request()->routeIs('business.invites')) bg-slate-300 @else bg-slate-100 @endif">Invite Users</a>
                
             </div>
         </div>
