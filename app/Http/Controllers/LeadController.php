@@ -14,7 +14,7 @@ class LeadController extends Controller
     {
         //
 
-        $leads = Lead::paginate(1);
+        $leads = Lead::paginate(10);
         return view('leads.index', compact('leads'));
     }
 
