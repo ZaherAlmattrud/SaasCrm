@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Middleware\SelectBusiness;
 use App\Livewire\Business\Invite;
 use App\Livewire\Business\Roles;
+use App\Livewire\Business\Subscription;
 
 Route::get('/logout' , function(){
 
@@ -40,6 +41,7 @@ Route::middleware([
 
     Route::get('/roles', Roles::class)->name('business.roles');
     Route::get('/invites', Invite::class)->name('business.invites');
+    Route::get('/subscription', Subscription::class)->name('business.subscription');
 
     // Route::get('/leads' , [LeadController::class , 'index'])->name('leads.index');
     // Route::get('/leads/create' , [LeadController::class , 'create'])->name('leads.create');

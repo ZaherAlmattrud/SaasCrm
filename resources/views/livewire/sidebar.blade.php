@@ -37,7 +37,7 @@
             <div x-show="open" class="flex flex-col">
                 <a href="{{route('business.roles')}}" class="p-4  hover:bg-slate-200 rounded @if(request()->routeIs('business.roles')) bg-slate-300 @else bg-slate-100 @endif">Roles</a>
                 <a href="{{route('business.invites')}}" class="p-4  hover:bg-slate-200 rounded  @if(request()->routeIs('business.invites')) bg-slate-300 @else bg-slate-100 @endif">Invite Users</a>
-                <a href="#" class="p-4  hover:bg-slate-200 rounded  @if(request()->routeIs('business.invites')) bg-slate-300 @else bg-slate-100 @endif">Subscription</a>
+                <a href="{{route('business.subscription')}}" class="p-4  hover:bg-slate-200 rounded  @if(request()->routeIs('business.subscription')) bg-slate-300 @else bg-slate-100 @endif">Subscription</a>
                
             </div>
         </div>
