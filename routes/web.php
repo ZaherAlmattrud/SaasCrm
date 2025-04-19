@@ -7,6 +7,7 @@ use App\Http\Middleware\SelectBusiness;
 use App\Livewire\Business\Invite;
 use App\Livewire\Business\Roles;
 use App\Livewire\Business\Subscription;
+use App\Livewire\Business\Users;
 
 Route::get('/logout' , function(){
 
@@ -40,6 +41,7 @@ Route::middleware([
     })->name('dashboard');
 
     Route::get('/roles', Roles::class)->name('business.roles');
+    Route::get('/users', Users::class)->name('business.users');
     Route::get('/invites', Invite::class)->name('business.invites');
     Route::get('/subscription', Subscription::class)->name('business.subscription');
 
