@@ -32,10 +32,13 @@
                             </span>
                             @endforeach
                         </td>
+
+                        @can('edit user')
                         <td class="px-6 py-4">
                             <button wire:click="edit('{{$user->id}}')" class="text-blue-500 hover:underline text-xs">Edit</button> |
                             <button class="text-red-500 hover:underline text-xs">Delete</button>
                         </td>
+                        @endcan
                     </tr>
 
                 </tbody>

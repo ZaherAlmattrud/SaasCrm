@@ -1,10 +1,10 @@
 <div>
-    <div class="w-full bg-gray-200 p-5">      @livewire('business.select',['showButton'=>true]) </div>
+    <div class="w-full bg-gray-200 p-5"> @livewire('business.select',['showButton'=>true]) </div>
     <div class="flex flex-col p-2 gap-2">
 
-    <a href="{{ route('dashboard') }}" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">Dashboard</a>
-    <a href="{{ route('leads.index') }}" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">Leads</a>
-    
+        <a href="{{ route('dashboard') }}" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">Dashboard</a>
+        <a href="{{ route('leads.index') }}" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">Leads</a>
+
         <div class="w-full" x-data="{open:$persist(false).as('open-users')}">
             <a x-on:click="open=!open" class="flex justify-between p-4 bg-slate-100 hover:bg-slate-200 rounded w-full ">
 
@@ -22,7 +22,7 @@
                 <a href="" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">link</a>
             </div>
         </div>
-       
+
         <div class="w-full" x-data="{open:$persist(false).as('open-settings')}">
             <a x-on:click="open=!open" class="flex justify-between p-4 bg-slate-100 hover:bg-slate-200 rounded w-full ">
 
@@ -35,11 +35,18 @@
                 </svg>
             </a>
             <div x-show="open" class="flex flex-col">
+                @can('view roles')
                 <a href="{{route('business.roles')}}" class="p-4  hover:bg-slate-200 rounded @if(request()->routeIs('business.roles')) bg-slate-300 @else bg-slate-100 @endif">Roles</a>
+                @endcan
+                @can('view users')
                 <a href="{{route('business.users')}}" class="p-4  hover:bg-slate-200 rounded  @if(request()->routeIs('business.users')) bg-slate-300 @else bg-slate-100 @endif">Users</a>
+                @endcan
+                @can('invite users')
                 <a href="{{route('business.invites')}}" class="p-4  hover:bg-slate-200 rounded  @if(request()->routeIs('business.invites')) bg-slate-300 @else bg-slate-100 @endif">Invite Users</a>
+                @endcan
+                @can('mange subscription')
                 <a href="{{route('business.subscription')}}" class="p-4  hover:bg-slate-200 rounded  @if(request()->routeIs('business.subscription')) bg-slate-300 @else bg-slate-100 @endif">Subscription</a>
-               
+                @endcan
             </div>
         </div>
 
