@@ -7,15 +7,15 @@
 
     <div class="p-4">
         <div class="overflow-x-auto rounded-2xl shadow">
-            <table class="min-w-full text-left text-sm font-light">
+            <x-table class="min-w-full text-left text-sm font-light">
                 <thead class="bg-gray-800 text-white uppercase text-xs">
-                    <tr>
-                        <th scope="col" class="px-6 py-4">#</th>
-                        <th scope="col" class="px-6 py-4">Name</th>
-                        <th scope="col" class="px-6 py-4">Email</th>
-                        <th scope="col" class="px-6 py-4">Role</th>
-                        <th scope="col" class="px-6 py-4">Actions</th>
-                    </tr>
+                    <x-tr>
+                        <x-th>#</x-th>
+                        <x-th>Name</x-th>
+                        <x-th>Email</x-th>
+                        <x-th>Role</x-th>
+                        <x-th>Actions</x-th>
+                    </x-tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200">
 
@@ -43,7 +43,7 @@
 
                 </tbody>
                 @endforeach
-            </table>
+            </x-table>
         </div>
     </div>
 
