@@ -8,6 +8,7 @@ use App\Livewire\Business\Invite;
 use App\Livewire\Business\Roles;
 use App\Livewire\Business\Subscription;
 use App\Livewire\Business\Users;
+use App\Livewire\Notifications;
 
 Route::get('/logout' , function(){
 
@@ -44,6 +45,7 @@ Route::middleware([
     Route::get('/users', Users::class)->name('business.users');
     Route::get('/invites', Invite::class)->name('business.invites');
     Route::get('/subscription', Subscription::class)->name('business.subscription');
+    Route::get('/notifications', Notifications::class)->name('notifications');
 
     // Route::get('/leads' , [LeadController::class , 'index'])->name('leads.index');
     // Route::get('/leads/create' , [LeadController::class , 'create'])->name('leads.create');

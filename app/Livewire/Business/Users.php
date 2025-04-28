@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 use Livewire\WithPagination;
+use App\Notifications\CommonNotification;
+use Illuminate\Support\Facades\Auth;
 
 class Users extends Component
 {
@@ -19,6 +21,7 @@ class Users extends Component
     public $editUserForm = false;
     public $user;
     public $selectedRoles = [];
+ 
 
 
     public function mount()
@@ -45,6 +48,9 @@ class Users extends Component
         Log::info($this->selectedRoles);
         $this->user->roles()->sync($this->selectedRoles);
         $this->editUserForm = false;
+        $message = "User : ".  $this->user->name ." roles updated successfully";
+        $link = route("business.users");
+        Auth::user()->notify(new CommonNotification($message, $link));
     }
 
     public function render()
