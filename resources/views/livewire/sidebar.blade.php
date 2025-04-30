@@ -2,10 +2,10 @@
     <div class="w-full bg-gray-200 p-5"> @livewire('business.select',['showButton'=>true]) </div>
     <div class="flex flex-col p-2 gap-2">
 
-        <a href="{{ route('dashboard') }}" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">Dashboard</a>
-        <a href="{{ route('leads.index') }}" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">Leads</a>
+        <a href="{{ route('dashboard') }}" class="p-4 flex gap-2 bg-slate-100 hover:bg-slate-200 rounded"> <x-iconic-dashboard  class="w-6 h-6" /> <span>Dashboard </span></a>
+        <a href="{{ route('leads.index') }}" class="p-4 flex gap-2 bg-slate-100 hover:bg-slate-200 rounded"><x-iconic-file class="w-6 h-6" /> <span>Leads </span></a>
 
-        <div class="w-full" x-data="{open:$persist(false).as('open-users')}">
+        <!-- <div class="w-full" x-data="{open:$persist(false).as('open-users')}">
             <a x-on:click="open=!open" class="flex justify-between p-4 bg-slate-100 hover:bg-slate-200 rounded w-full ">
 
                 <span> Users </span>
@@ -21,7 +21,7 @@
                 <a href="" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">link</a>
                 <a href="" class="p-4 bg-slate-100 hover:bg-slate-200 rounded">link</a>
             </div>
-        </div>
+        </div> -->
 
         <div class="w-full" x-data="{open:$persist(false).as('open-settings')}">
             <a x-on:click="open=!open" class="flex justify-between p-4 bg-slate-100 hover:bg-slate-200 rounded w-full ">
