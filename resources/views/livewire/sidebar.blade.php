@@ -36,16 +36,17 @@
             </a>
             <div x-show="open" class="flex flex-col">
                 @can('view roles')
-                <a href="{{route('business.roles')}}" class="p-4  hover:bg-slate-200 rounded @if(request()->routeIs('business.roles')) bg-slate-300 @else bg-slate-100 @endif">Roles</a>
+                <a href="{{route('business.roles')}}" class="p-4 flex gap-2 hover:bg-slate-200 rounded @if(request()->routeIs('business.roles')) bg-slate-300 @else bg-slate-100 @endif"> <x-iconic-user-check class="w-6 h-6" /> Roles</a>
                 @endcan
                 @can('view users')
-                <a href="{{route('business.users')}}" class="p-4  hover:bg-slate-200 rounded  @if(request()->routeIs('business.users')) bg-slate-300 @else bg-slate-100 @endif">Users</a>
+                <a href="{{route('business.users')}}" class="p-4 flex gap-2  hover:bg-slate-200 rounded  @if(request()->routeIs('business.users')) bg-slate-300 @else bg-slate-100 @endif"> <x-iconic-users class="w-6 h-6" />Users</a>
                 @endcan
                 @can('invite users')
-                <a href="{{route('business.invites')}}" class="p-4  hover:bg-slate-200 rounded  @if(request()->routeIs('business.invites')) bg-slate-300 @else bg-slate-100 @endif">Invite Users</a>
+               
+                <a href="{{route('business.invites')}}" class="p-4 flex gap-2  hover:bg-slate-200 rounded  @if(request()->routeIs('business.invites')) bg-slate-300 @else bg-slate-100 @endif"> <x-iconic-users-plus class="w-6 h-6" /> <span>Invite Users</span></a>
                 @endcan
                 @can('mange subscription')
-                <a href="{{route('business.subscription')}}" class="p-4  hover:bg-slate-200 rounded  @if(request()->routeIs('business.subscription')) bg-slate-300 @else bg-slate-100 @endif">Subscription</a>
+                <a href="{{route('business.subscription')}}" class="p-4 flex gap-2  hover:bg-slate-200 rounded  @if(request()->routeIs('business.subscription')) bg-slate-300 @else bg-slate-100 @endif"> <x-iconic-dollar class="w-6 h-6" /> <span>Subscription </span></a> </a>
                 @endcan
             </div>
         </div>
